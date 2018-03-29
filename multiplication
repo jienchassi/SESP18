@@ -1,0 +1,5 @@
+int multiply(int number1, int number2)
+{
+  int product = number1 * number2;
+  return product; //product of two numbers
+} //end multiply
