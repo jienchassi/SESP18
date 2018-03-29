@@ -1,0 +1,6 @@
+#include<stdio.h>
+
+main()
+{
+	printf("This a test for Github");
+} //end main
