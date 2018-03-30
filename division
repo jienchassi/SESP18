@@ -1,4 +1,4 @@
-int divide(int number1, int number2)
+public int divide(int number1, int number2)
 {
   int quotient = number2 / number1;
   return quotient; //quotient of 2 numbers
