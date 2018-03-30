@@ -1,4 +1,4 @@
-int subtract(int number1, int number2)
+public int subtract(int number1, int number2)
 {
   int difference = number2 - number1;
   return difference; //finds the difference between two numbers
