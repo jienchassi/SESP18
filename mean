@@ -1,0 +1,5 @@
+public double mean(int number1, int number2)
+{
+return (number1 /number2) /2;
+ //find the mean of two numbers
+}//end mean method
