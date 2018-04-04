@@ -239,7 +239,7 @@ public class MyCalculator extends JFrame implements ActionListener
     
     public void NaturalLogarithm()//Natural logarithm function
     {
-        double value = Math.log1p(Double.parseDouble(screen.getText()));
+        double value = Math.log(Double.parseDouble(screen.getText()));
         screen.setText(Double.toString(value));
     }
     
