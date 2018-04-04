@@ -1,0 +1,124 @@
+/*
+JMC
+Calculator project
+ */
+package Cal;
+
+/**
+ *
+ * @author jienchassi
+ */
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Cal extends JFrame
+{
+ //Data members
+ private Container contents;
+ private JLabel operandLabel, operandLabel1, resultLabel, result;
+ private JTextField operand, operand1;
+ private JButton subtract, add, multiply, divide;
+ private JButton squareRoot, exponent, mean;
+
+ public Cal( )
+ {
+  super( "JMC's Calculator" ); //header which is from super
+  contents = getContentPane( );
+  contents.setLayout( new FlowLayout( ) );
+
+  operandLabel = new JLabel( "Enter the first number" ); // text field label
+  operandLabel1 = new JLabel( "Enter the second number" ); // text field label
+  operand = new JTextField( 5 ); // text field is 5 characters wide
+  operand1 = new JTextField( 5 ); // text field is 5 characters wide
+
+  // instantiate buttons
+  subtract = new JButton( "Subtract" );
+  add = new JButton( "Add" );
+  divide = new JButton("Divide");
+  multiply = new JButton("Multiply"); //new button
+  squareRoot = new JButton("Square root"); //new button 
+  exponent = new JButton("Power"); //new button 
+  mean = new JButton("Mean"); //new button 
+  
+  resultLabel = new JLabel("The result "); // label for result 
+  result = new JLabel( "???" );          // label to hold result
+
+  // add components to the window
+  contents.add( operandLabel );
+  contents.add( operand );
+  contents.add( operandLabel1 );
+  contents.add( operand1 );
+  contents.add( subtract );
+  contents.add( add );
+  contents.add( multiply );
+  contents.add( divide );
+  contents.add( squareRoot );
+  contents.add( exponent);
+  contents.add( mean);
+  contents.add( resultLabel );
+  contents.add( result );
+
+  // instantiate the event handler
+  ButtonHandler bh = new ButtonHandler( );
+
+  // add event handler as listener for both buttons
+  subtract.addActionListener( bh );
+  add.addActionListener( bh );
+  divide.addActionListener(bh);
+  multiply.addActionListener(bh);
+  squareRoot.addActionListener(bh);
+  exponent.addActionListener(bh);
+  mean.addActionListener(bh);
+  
+  setSize( 300,300 );
+  setVisible(true);
+ } //end constructor
+
+ // private inner class event handler
+ private class ButtonHandler implements ActionListener
+ {
+  // implement actionPerformed method
+  public void actionPerformed( ActionEvent ae )
+  {
+   try
+   {
+    double op2 = Double.parseDouble( operand.getText( ) );
+       double op = Double.parseDouble( operand1.getText( ) );
+
+    // identify which button was pressed
+    if ( ae.getSource( ) == subtract )
+      result.setText( "when the numbers are subtracted "+( new Double( op2 - op ) ).toString( ) );
+    //" +operand+ "
+    if ( ae.getSource( ) == add )
+      result.setText( "when the numbers are added "+( new Double( op + op2 ) ).toString( ) );
+    if(ae.getSource( ) == multiply)
+       result.setText( "when the numbers are multiplied "+(new Double(op * op2 )).toString() );
+    if(ae.getSource( ) == divide)
+       result.setText( "when the numbers are divided "+(new Double( op2 / op )).toString() );
+   // if(ae.getSource( ) == exponent)
+   //    result.setText( "number1 %d to the power of number2: %d "+(new Double(   )).toString() );
+    if(ae.getSource( ) == mean)
+       result.setText( "the mean of the numbers is "+(new Double( (op2 + op) /2 )).toString() );
+    else if( ae.getSource( ) == squareRoot)
+       result.setText( "when square rooted is "+(new Double(op * 0.5)).toString() );
+   } //end try
+   catch( NumberFormatException e )
+   {
+    //operandLabel.setText( "Enter number 1" ); 
+   // operandLabel.setText( "Enter number 2" ); 
+    operand.setText( "" );
+  //  operand1.setText( "" );
+    result.setText( "???" );
+   } //end catch
+  } //end actionPerformed
+
+ } //end ButtonHandler class
+
+ public static void main( String [] args )
+ {
+  Cal sm = new Cal( );
+  sm.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+ } //end main
+} //end Cal class
