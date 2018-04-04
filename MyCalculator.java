@@ -12,8 +12,8 @@ public class MyCalculator extends JFrame implements ActionListener
     JButton[] button = new JButton[28]; //button making array
     String[] ButtonString = {"(", "+/-", "C",
                              "BE", "|x|", "x̅", "ROI", "SALE",
-                             "ln", "7", "8", "9", "÷",
-                             "log", "4", "5", "6", "x",
+                             "log", "7", "8", "9", "÷",
+                             "ln", "4", "5", "6", "x",
                              "x²", "1", "2", "3", "-",
                              "√", ".", "0", "=", "+"
     }; //button naming array
@@ -233,7 +233,7 @@ public class MyCalculator extends JFrame implements ActionListener
     
     public void Logarithm()//Logarithm function
     {
-        double value = Math.log(Double.parseDouble(screen.getText()));
+        double value = Math.log10(Double.parseDouble(screen.getText()));
         screen.setText(Double.toString(value));
     }
     
