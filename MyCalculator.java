@@ -7,6 +7,8 @@ import java.util.*;
  * @Authors: Christopher Salzwedel, Makenna Smith, Jasmin Enchassi
  * @Description: This code creates a calculator with a GUI that can perform basic, scientific, and few business calculator functions.
  *               More details can be found within the User Manual packaged with the code.
+ * @Credit: We created the idea for the design of the Calculator's GUI from http://www.dreamincode.net/forums/topic/321933-creating-a-calculator-using-jframe/
+ *          The formulas for business functions were utilized from https://www.omnicalculator.com/business 
  */
 public class MyCalculator extends JFrame implements ActionListener  //myCalculator class begins
 {
